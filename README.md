@@ -1,4 +1,4 @@
-# Obsidian Plugin: New Note Here
+# Obsidian Plugin: New Note Where
 
-This is a simple plugin that creates a new note in the same directory as the current note you have open, i.e. as a sibling.
+This is a simple plugin that creates a new note in the specified folder, or in the same folder as the current note.
 You can choose a name for new notes, including the current date and/or time.
