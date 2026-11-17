@@ -131,6 +131,7 @@ export class CreateInFolderModal extends SuggestModal<TFolder> {
 	constructor(app: App, creator: NoteCreator) {
 		super(app);
 		this.creator = creator;
+		this.setPlaceholder("Create a note in...")
 	}
 
 	getSuggestions(query: string): TFolder[] | Promise<TFolder[]> {
@@ -157,6 +158,7 @@ export class FuzzyCreateInFolderModal extends FuzzySuggestModal<TFolder> {
 	constructor(app: App, creator: NoteCreator) {
 		super(app);
 		this.creator = creator;
+		this.setPlaceholder("Create a note in...")
 	}
 
 	getItems(): TFolder[] {
