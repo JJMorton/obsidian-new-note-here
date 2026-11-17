@@ -1,9 +1,9 @@
 {
-	"id": "new-note-here",
-	"name": "New note here",
-	"version": "1.0.0",
-	"minAppVersion": "1.5.7",
-	"description": "Create a new note in the current folder",
+	"id": "new-note-where",
+	"name": "New note where",
+	"version": "1.1.0",
+	"minAppVersion": "1.6.6",
+	"description": "Create a new note in the specified folder",
 	"author": "JJMorton",
 	"isDesktopOnly": false
 }

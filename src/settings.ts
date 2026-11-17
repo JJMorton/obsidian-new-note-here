@@ -5,12 +5,14 @@ export interface NewNoteHereSettings {
 	nameTemplate: string;
 	dateTemplate: string;
 	timeTemplate: string;
+	fuzzyFolderSearch: boolean;
 }
 
 export const DEFAULT_SETTINGS: NewNoteHereSettings = {
 	nameTemplate: "{{date}} Untitled",
 	dateTemplate: "YYYY-MM-DD",
 	timeTemplate: "HH:mm",
+	fuzzyFolderSearch: true,
 };
 
 export class NewNoteHereSettingTab extends PluginSettingTab {
@@ -50,6 +52,14 @@ export class NewNoteHereSettingTab extends PluginSettingTab {
 					placeholder: DEFAULT_SETTINGS.timeTemplate,
 				}
 			},
+			{
+				name: "Fuzzy folder search",
+				desc: "Use fuzzy matching when searching folders",
+				control: {
+					type: "toggle",
+					key: "fuzzyFolderSearch",
+				}
+			}
 		]
 	}
 
@@ -96,6 +106,18 @@ export class NewNoteHereSettingTab extends PluginSettingTab {
 						await this.plugin.saveSettings();
 					}),
 			);
+
+		new Setting(containerEl)
+			.setName("Fuzzy folder search")
+			.setDesc("Use fuzzy matching when searching folders")
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.fuzzyFolderSearch)
+				.onChange(async value => {
+					this.plugin.settings.fuzzyFolderSearch = value;
+					await this.plugin.saveSettings();
+					this.display();
+				})
+			)
 
 	}
 }
